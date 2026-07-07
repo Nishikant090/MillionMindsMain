@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Million Minds AI Platform
 
-## Getting Started
+An enterprise-grade, premium EdTech, Skill Development, Innovation, and Startup Incubation ecosystem. This platform is designed to connect students, academic institutions, and corporate recruiters through AI-driven tools.
 
-First, run the development server:
+The codebase is split into a **Next.js 16 (App Router) Frontend** and a **Python FastAPI Backend** to support modularity and easy service expansion.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📂 Project Architecture
+
+```text
+├── frontend/                   # Next.js 16 Web Application
+│   ├── app/                    # Next.js App Router (Pages, Layouts, CSS)
+│   ├── components/             # Reusable UI & Layout Components (Navbar, Footer, Buttons)
+│   ├── sections/               # Modular Home/Landing page section blocks
+│   ├── hooks/                  # Custom React hooks (e.g., scroll position tracking)
+│   ├── lib/                    # Shared utility files (e.g., tailwind merge)
+│   └── package.json            # Frontend dependency specifications
+│
+├── backend/                    # Python FastAPI API Service
+│   ├── .venv/                  # Python Virtual Environment
+│   ├── main.py                 # FastAPI Main Entry Point with API endpoints
+│   └── requirements.txt        # Python backend dependency specifications
+│
+└── README.md                   # Workspace setup and execution guide
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚡ Quick Start Guide
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
+- **Node.js**: `v18.x` or higher (Recommended: `v20+`)
+- **Python**: `3.10` or higher
+- **npm**: `v9.x` or higher
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Backend Setup & Run (FastAPI)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The backend runs inside a Python virtual environment to isolate dependencies.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Step 1: Navigate to the backend directory
+```powershell
+cd backend
+```
 
-## Deploy on Vercel
+#### Step 2: Set up & Activate the Virtual Environment
+- **Windows (PowerShell)**:
+  ```powershell
+  python -m venv .venv
+  .\.venv\Scripts\Activate.ps1
+  ```
+- **Windows (CMD)**:
+  ```cmd
+  python -m venv .venv
+  .\.venv\Scripts\activate.bat
+  ```
+- **macOS / Linux**:
+  ```bash
+  python3 -m venv .venv
+  source .venv/bin/activate
+  ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Step 3: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Step 4: Run the API Server
+```bash
+uvicorn main:app --reload --port 8000
+```
+- The backend API will be available at **[http://localhost:8000](http://localhost:8000)**.
+- Interactive API documentation (Swagger UI) is available at **[http://localhost:8000/docs](http://localhost:8000/docs)**.
+
+---
+
+### 2. Frontend Setup & Run (Next.js 16)
+
+The frontend is built using Next.js 16, TypeScript, Tailwind CSS v4, and Framer Motion.
+
+#### Step 1: Navigate to the frontend directory
+```powershell
+cd frontend
+```
+
+#### Step 2: Install Dependencies
+```bash
+npm install
+```
+
+#### Step 3: Run the Development Server
+```bash
+npm run dev
+```
+- The frontend will be available at **[http://localhost:3000](http://localhost:3000)**.
+- Note: It is pre-configured to utilize the Next.js **Turbopack** engine for fast compile times.
+
+#### Step 4: Build for Production
+To build the static application assets and optimize resources:
+```bash
+npm run build
+```
+To run the production build locally:
+```bash
+npm run start
+```
+
+---
+
+## 🛠️ API Endpoint References
+
+The backend serves mock endpoints matching the 9 platform services:
+
+| Service ID | Service Name | Endpoint Route |
+| :--- | :--- | :--- |
+| **`service-1`** | AI Career Assistant | `GET http://localhost:8000/api/services/service-1` |
+| **`service-2`** | Internship Portal | `GET http://localhost:8000/api/services/service-2` |
+| **`service-3`** | Placement Management | `GET http://localhost:8000/api/services/service-3` |
+| **`service-4`** | Learning Management System | `GET http://localhost:8000/api/services/service-4` |
+| **`service-5`** | Startup Incubation | `GET http://localhost:8000/api/services/service-5` |
+| **`service-6`** | Hackathon Platform | `GET http://localhost:8000/api/services/service-6` |
+| **`service-7`** | Student Dashboard | `GET http://localhost:8000/api/services/service-7` |
+| **`service-8`** | Company Portal | `GET http://localhost:8000/api/services/service-8` |
+| **`service-9`** | Analytics Dashboard | `GET http://localhost:8000/api/services/service-9` |
+
+---
+
+## 🎨 Visual Features & Aesthetics
+- **Scrolling Glassmorphic Navbar**: Smoothly transitions from fully transparent to blur backdrop as you scroll down.
+- **Dynamic Counters**: Responsive statistics counting animation for partner colleges, active students, etc.
+- **Infinite Partners Logo Scroll**: Smooth CSS marquee showing corporate partner logos.
+- **Staggered Animations**: Micro-animations powered by Framer Motion on features, timelines, and testimonial cards.
