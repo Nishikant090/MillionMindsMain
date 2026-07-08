@@ -29,12 +29,12 @@ def read_root():
 # Mock API endpoints matching the 9 platform services for structural reference:
 
 @app.get("/api/services/service-1")
-def get_ai_career_assistant():
+def get_ai_boot_camp():
     return {
         "service_id": "service-1",
-        "name": "AI Career Assistant",
+        "name": "AI Boot Camp",
         "status": "placeholder_active",
-        "endpoints": ["/api/resume/scan", "/api/interview/mock", "/api/pathway/generate"]
+        "endpoints": ["https://million-main.vercel.app/"]
     }
 
 @app.get("/api/services/service-2")

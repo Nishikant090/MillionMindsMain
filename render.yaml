@@ -1,0 +1,24 @@
+services:
+  # ─── FastAPI Backend Web Service ──────────────────────────────────────────
+  - type: web
+    name: million-minds-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: FRONTEND_URL
+        # Update this to your live frontend URL after the first deploy
+        value: https://million-minds-frontend.onrender.com
+
+  # ─── Next.js Static Frontend ──────────────────────────────────────────────
+  - type: web
+    name: million-minds-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./out
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

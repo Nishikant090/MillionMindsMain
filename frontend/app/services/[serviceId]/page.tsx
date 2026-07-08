@@ -1,8 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { ArrowLeft, CheckCircle2, LayoutDashboard, Brain, Briefcase, GraduationCap, BookOpen, Rocket, Trophy, Building, BarChart3 } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
+
+const EXTERNAL_HOMEPAGE_URL = "https://million-main.vercel.app/";
 
 // Static mapping for service-1 to service-9 metadata
 const servicesMap: Record<
@@ -15,13 +18,13 @@ const servicesMap: Record<
   }
 > = {
   "service-1": {
-    title: "AI Career Assistant",
-    description: "Accelerate your career development using neural assessment models, resume builders, and interactive mock coding evaluations.",
+    title: "AI Boot Camp",
+    description: "Join an immersive boot camp experience focused on future-ready AI, innovation, and career growth.",
     icon: <Brain className="w-8 h-8 text-primary" />,
     features: [
-      "Dynamic Resume Review & ATS Keyword Audit",
-      "Interactive LLM Technical & Behavioral Mock Interviews",
-      "Personalized Tech Skill Acquisition Roadmap Builder",
+      "Immersive AI Learning Tracks",
+      "Hands-On Innovation Workshops",
+      "Career-Ready Skill Building",
     ],
   },
   "service-2": {
@@ -106,6 +109,21 @@ const servicesMap: Record<
   },
 };
 
+// Required for Next.js static export: tells the build which service IDs to pre-render.
+export async function generateStaticParams() {
+  return [
+    { serviceId: "service-1" },
+    { serviceId: "service-2" },
+    { serviceId: "service-3" },
+    { serviceId: "service-4" },
+    { serviceId: "service-5" },
+    { serviceId: "service-6" },
+    { serviceId: "service-7" },
+    { serviceId: "service-8" },
+    { serviceId: "service-9" },
+  ];
+}
+
 interface PageProps {
   params: Promise<{
     serviceId: string;
@@ -114,6 +132,11 @@ interface PageProps {
 
 export default async function ServicePlaceholderPage({ params }: PageProps) {
   const { serviceId } = await params;
+
+  if (serviceId === "service-1") {
+    redirect(EXTERNAL_HOMEPAGE_URL);
+  }
+
   const service = servicesMap[serviceId] || {
     title: "Ecosystem Application Placeholder",
     description: "This service route is mapped and ready for replacement with your standalone application module.",
@@ -202,7 +225,7 @@ export default async function ServicePlaceholderPage({ params }: PageProps) {
 
             {/* CTAs */}
             <div className="flex items-center gap-4 pt-2">
-              <Link href="/">
+              <Link href={EXTERNAL_HOMEPAGE_URL} target="_blank" rel="noopener noreferrer">
                 <Button variant="primary" size="md">
                   Explore Homepage
                 </Button>
