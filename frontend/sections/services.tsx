@@ -40,14 +40,15 @@ export function ServicesSection() {
     {
       id: "service-4",
       icon: <BookOpen className="w-6 h-6 text-emerald-500" />,
-      title: "Learning Management System",
-      description: "Attend lectures, solve coding challenges, and download curated material in a centralized portal.",
+      title: "AI Boot Camps",
+      description: "Hands-on, live in-campus programs across tech, industry-application, and generalist tracks.",
+      link: "https://million-main.vercel.app/",
     },
     {
       id: "service-5",
       icon: <Rocket className="w-6 h-6 text-rose-500" />,
-      title: "Startup Incubation",
-      description: "Get mentorship, sandbox servers, legal registration advice, and pitch directly to VC networks.",
+      title: "AI Studio",
+      description: "Build, test, and deploy GenAI applications and custom LLM models in a collaborative, low-code sandbox environment.",
     },
     {
       id: "service-6",
@@ -121,7 +122,7 @@ export function ServicesSection() {
         >
           {services.map((service) => (
             <motion.div key={service.id} variants={itemVariants}>
-              <Link href={`/services/${service.id}`} className="block h-full">
+              <Link href={service.link || `/services/${service.id}`} className="block h-full" target={service.link ? "_blank" : undefined}>
                 <Card
                   glass={false}
                   glow={true}

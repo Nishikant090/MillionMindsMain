@@ -45,23 +45,23 @@ const servicesMap: Record<
     ],
   },
   "service-4": {
-    title: "Learning Management System",
-    description: "Centralized learning portal to consume structured coding lessons, submit assignments, and track grades.",
+    title: "AI Boot Camps",
+    description: "Hands-on, live in-campus programs across tech, industry-application, and generalist tracks.",
     icon: <BookOpen className="w-8 h-8 text-emerald-500" />,
     features: [
-      "Responsive Interactive Coding Sandboxes",
-      "Vetted Technical Modules & Material Library",
-      "Real-time Grades & Assessment Progress Graphs",
+      "Strategic Partnership with Domain Knowledge Experts",
+      "Industry Application-Based Bespoke Programs",
+      "Essential GenAI Tool Toolkits for Productivity",
     ],
   },
   "service-5": {
-    title: "Startup Incubation",
-    description: "Transform raw ideas into working prototypes with venture mentorship, funding opportunities, and sandbox support.",
+    title: "AI Studio",
+    description: "Build, test, and deploy GenAI applications and custom LLM models in a collaborative, low-code sandbox environment.",
     icon: <Rocket className="w-8 h-8 text-rose-500" />,
     features: [
-      "Incubation Cohort Calendars & Project Boards",
-      "Patent Filing & Incorporation Guide Templates",
-      "Investor Network Pitch Day Coordinates",
+      "Collaborative GenAI Sandboxes & Playgrounds",
+      "No-Code & Low-Code Application Prototyping",
+      "Custom Model Deployments & API Integrations",
     ],
   },
   "service-6": {
