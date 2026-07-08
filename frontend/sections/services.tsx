@@ -22,14 +22,16 @@ export function ServicesSection() {
     {
       id: "service-1",
       icon: <Brain className="w-6 h-6 text-primary" />,
-      title: "AI Career Assistant",
-      description: "Get real-time resume reviews, placement alignment matching, and mock technical interviews powered by LLMs.",
+      title: "AI Boot Camp",
+      description: "Join an immersive learning experience focused on AI, innovation, and career-ready skills.",
+      link: "https://million-main.vercel.app/",
     },
     {
       id: "service-2",
       icon: <Briefcase className="w-6 h-6 text-secondary" />,
       title: "Internship Portal",
       description: "Find verified experienceships and paid internships with startup builders and corporate giants.",
+      link: "https://aspire-frontend.onrender.com",
     },
     {
       id: "service-3",
