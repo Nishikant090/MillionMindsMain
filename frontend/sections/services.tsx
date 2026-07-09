@@ -38,6 +38,7 @@ export function ServicesSection() {
       icon: <GraduationCap className="w-6 h-6 text-accent" />,
       title: "Placement Management",
       description: "Optimize your corporate campus hiring, coordinate recruitment drives, and track incoming offers.",
+      link: "https://aria-campus-taas.onrender.com/",
     },
     {
       id: "service-4",
