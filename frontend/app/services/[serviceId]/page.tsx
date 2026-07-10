@@ -28,8 +28,8 @@ const servicesMap: Record<
     ],
   },
   "service-2": {
-    title: "Internship Portal",
-    description: "Discover, apply, and complete verified internships and experiential learning assignments.",
+    title: "Aspire - Jobs & Internships",
+    description: "Aspire — Jobs & Internships Platform for Students and Companies.",
     icon: <Briefcase className="w-8 h-8 text-secondary" />,
     features: [
       "1-Click Verified Applications Integration",
@@ -38,13 +38,13 @@ const servicesMap: Record<
     ],
   },
   "service-3": {
-    title: "Placement Management",
-    description: "Unify institutional placement coordinators, corporate HR teams, and job-seeking candidates in one database.",
+    title: "Campus TaaS Platform",
+    description: "Connect with vetted, agile student teams trained to handle technical pipelines and operational use cases.",
     icon: <GraduationCap className="w-8 h-8 text-accent" />,
     features: [
-      "Campus Placement Drive Schedules Manager",
-      "Automated Candidate Profile Filtering",
-      "Offer Acceptance & Job Log Tracking",
+      "Learn & Earn Outsourcing Framework",
+      "Technical Pipelines & Delivery Metrics",
+      "Real-Life Operational Use Cases",
     ],
   },
   "service-4": {

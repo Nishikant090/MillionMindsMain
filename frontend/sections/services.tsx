@@ -29,15 +29,15 @@ export function ServicesSection() {
     {
       id: "service-2",
       icon: <Briefcase className="w-6 h-6 text-secondary" />,
-      title: "Internship Portal",
-      description: "Find verified experienceships and paid internships with startup builders and corporate giants.",
+      title: "Aspire - Jobs & Internships",
+      description: "Aspire — Jobs & Internships Platform for Students and Companies.",
       link: "https://aspire-frontend.onrender.com",
     },
     {
       id: "service-3",
       icon: <GraduationCap className="w-6 h-6 text-accent" />,
-      title: "Placement Management",
-      description: "Optimize your corporate campus hiring, coordinate recruitment drives, and track incoming offers.",
+      title: "Campus TaaS Platform",
+      description: "Connect with vetted, agile student teams trained to handle technical pipelines and operational use cases.",
       link: "https://aria-campus-taas.onrender.com/",
     },
     {

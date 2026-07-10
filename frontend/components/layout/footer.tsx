@@ -18,8 +18,8 @@ export function Footer() {
 
   const services = [
     { name: "AI Career Assistant", href: "/services/service-1" },
-    { name: "Internship Portal", href: "/services/service-2" },
-    { name: "Placement Management", href: "/services/service-3" },
+    { name: "Aspire - Jobs & Internships", href: "/services/service-2" },
+    { name: "Campus TaaS Platform", href: "/services/service-3" },
     { name: "Startup Incubation", href: "/services/service-5" },
     { name: "Hackathon Platform", href: "/services/service-6" },
   ];
