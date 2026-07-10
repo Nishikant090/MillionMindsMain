@@ -403,8 +403,18 @@ async def internship_portal_company_jobs(
 @app.get("/api/services/service-3")
 def get_placement_management():
     """
-    Returns metadata for the Placement Management service,
-    which is powered by the Aria Campus TaaS platform.
+    Triggers a 302 redirect directly to the live Aria Campus TaaS platform.
+    Any client (browser, curl, frontend card) that hits this endpoint is
+    immediately relocated to https://aria-campus-taas.onrender.com/
+    """
+    return RedirectResponse(url=ARIA_CAMPUS_TAAS_URL, status_code=302)
+
+
+@app.get("/api/services/service-3/info")
+def get_placement_management_info():
+    """
+    Returns JSON metadata for the Placement Management service
+    without triggering a redirect.
     """
     return {
         "service_id": "service-3",
@@ -417,8 +427,9 @@ def get_placement_management():
         "provider": "Aria Campus TaaS",
         "url": ARIA_CAMPUS_TAAS_URL,
         "endpoints": {
+            "trigger":  "/api/services/service-3",        # → 302 redirect to Aria TaaS
+            "info":     "/api/services/service-3/info",   # → this JSON response
             "health":   "/api/services/service-3/health",
-            "redirect": "/api/services/service-3/redirect",
         },
         "features": [
             "Campus recruitment drive coordination",
@@ -457,15 +468,6 @@ async def placement_management_health():
                     "error": str(exc),
                 },
             )
-
-
-@app.get("/api/services/service-3/redirect")
-def placement_management_redirect():
-    """
-    Issues an HTTP 302 redirect to the live Aria Campus TaaS platform.
-    Useful for server-side navigation flows.
-    """
-    return RedirectResponse(url=ARIA_CAMPUS_TAAS_URL, status_code=302)
 
 
 # ═════════════════════════════════════════════════════════════════════════════
