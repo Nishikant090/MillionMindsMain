@@ -18,6 +18,9 @@ backend/.pytest_cache/
 # Local TinyDB fallback data (only used when MONGODB_URI isn't set)
 backend/data/
 
+# Ad-hoc deployment build artifacts
+*.zip
+
 # Environment configurations
 .env
 .env.local
