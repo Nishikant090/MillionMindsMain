@@ -14,11 +14,17 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Configure CORS to permit connection requests from the frontend
-frontend_url = os.getenv("FRONTEND_URL", "http://localhost:3000")
+# Configure CORS to permit connection requests from the frontend.
+# FRONTEND_URL accepts a comma-separated list, since a site is often reachable
+# from more than one origin (bare domain, subdomain, Render preview URL, etc.).
+frontend_urls = [
+    url.strip()
+    for url in os.getenv("FRONTEND_URL", "http://localhost:3000").split(",")
+    if url.strip()
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[frontend_url],
+    allow_origins=frontend_urls,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
