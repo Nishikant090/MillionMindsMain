@@ -1,12 +1,32 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Check, Loader2 } from "lucide-react";
+import { subscribeToNewsletter } from "@/lib/api";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (status === "loading") return;
+    setStatus("loading");
+    setErrorMessage("");
+    try {
+      await subscribeToNewsletter(email);
+      setStatus("success");
+      setEmail("");
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(err instanceof Error ? err.message : "Something went wrong");
+    }
+  };
 
   const quickLinks = [
     { name: "Home", href: "#home" },
@@ -142,20 +162,41 @@ export function Footer() {
               <p className="text-sm text-slate-400 mb-4 leading-relaxed">
                 Subscribe to our newsletter to receive updates on incubation cohorts, internships, and skill workshops.
               </p>
-              <form onSubmit={(e) => e.preventDefault()} className="relative flex items-center">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full bg-slate-800/40 border border-slate-700/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors pr-10"
-                />
-                <button
-                  type="submit"
-                  className="absolute right-2 top-2 p-1.5 rounded-lg bg-primary hover:bg-blue-600 text-white transition-colors cursor-pointer"
-                  aria-label="Subscribe"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
+              {status === "success" ? (
+                <div className="flex items-center gap-2 text-sm text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-4 py-3">
+                  <Check className="w-4 h-4 shrink-0" />
+                  Subscribed! Check your inbox for updates.
+                </div>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex flex-col gap-1.5">
+                  <div className="relative flex items-center">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email"
+                      disabled={status === "loading"}
+                      className="w-full bg-slate-800/40 border border-slate-700/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors pr-10 disabled:opacity-60"
+                    />
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      className="absolute right-2 top-2 p-1.5 rounded-lg bg-primary hover:bg-blue-600 text-white transition-colors cursor-pointer disabled:opacity-60"
+                      aria-label="Subscribe"
+                    >
+                      {status === "loading" ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <ArrowRight className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
+                  {status === "error" && (
+                    <p className="text-xs text-red-400">{errorMessage}</p>
+                  )}
+                </form>
+              )}
             </div>
             
             <div className="flex flex-col gap-3 border-t border-slate-800/60 pt-4">

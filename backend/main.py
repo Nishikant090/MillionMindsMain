@@ -1,8 +1,12 @@
 import os
 import httpx
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import Depends, FastAPI, Header, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
+from pydantic import BaseModel, EmailStr, Field
+
+import db
+import security
 
 app = FastAPI(
     title="Million Minds AI Platform Backend API",
@@ -24,6 +28,28 @@ app.add_middleware(
 AI_BOOTCAMP_API       = "https://million-main.onrender.com"       # service-1 backend
 ASPIRE_API            = "https://aspire-backend-932q.onrender.com" # service-2 backend
 ARIA_CAMPUS_TAAS_URL  = "https://aria-campus-taas.onrender.com/"   # service-3 (frontend-only)
+
+# Key required in the `X-Admin-Key` header to read captured leads/subscribers.
+# Set a real secret via the ADMIN_API_KEY env var before deploying.
+ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "dev-admin-key")
+
+
+def require_admin(x_admin_key: str = Header(default="")):
+    if x_admin_key != ADMIN_API_KEY:
+        raise HTTPException(status_code=401, detail="Invalid or missing X-Admin-Key header")
+
+
+def require_user(authorization: str = Header(default="")) -> dict:
+    """Resolves the Bearer token in the Authorization header to a logged-in user."""
+    if not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Missing bearer token")
+    email = security.verify_token(authorization.removeprefix("Bearer "))
+    if not email:
+        raise HTTPException(status_code=401, detail="Invalid or expired session")
+    user = db.find_user_by_email(email)
+    if not user:
+        raise HTTPException(status_code=401, detail="User no longer exists")
+    return {"name": user["name"], "email": user["email"]}
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Root
@@ -468,6 +494,115 @@ async def placement_management_health():
                     "error": str(exc),
                 },
             )
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# AUTH — Signup / Login (real accounts + a login_events log for admin stats)
+# ═════════════════════════════════════════════════════════════════════════════
+
+class SignupRequest(BaseModel):
+    name: str = Field(min_length=1, max_length=120)
+    email: EmailStr
+    password: str = Field(min_length=8, max_length=200)
+
+
+class LoginRequest(BaseModel):
+    email: EmailStr
+    password: str = Field(min_length=1, max_length=200)
+
+
+@app.post("/api/auth/signup", status_code=201)
+def signup(payload: SignupRequest):
+    email = payload.email.lower()
+    created = db.create_user({
+        "name": payload.name,
+        "email": email,
+        "password_hash": security.hash_password(payload.password),
+        "created_at": db.now_iso(),
+    })
+    if not created:
+        raise HTTPException(status_code=409, detail="An account with this email already exists")
+    db.record_login(email)
+    return {"token": security.create_token(email), "user": {"name": payload.name, "email": email}}
+
+
+@app.post("/api/auth/login")
+def login(payload: LoginRequest):
+    email = payload.email.lower()
+    user = db.find_user_by_email(email)
+    if not user or not security.verify_password(payload.password, user["password_hash"]):
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+    db.record_login(email)
+    return {"token": security.create_token(email), "user": {"name": user["name"], "email": email}}
+
+
+@app.get("/api/auth/me")
+def get_me(current_user: dict = Depends(require_user)):
+    return current_user
+
+
+@app.get("/api/admin/login-stats")
+def get_login_stats(_: None = Depends(require_admin)):
+    return {
+        "total_users": db.count_users(),
+        "total_logins": db.count_logins(),
+        "recent_logins": db.list_login_events()[:50],
+    }
+
+
+@app.get("/api/admin/users")
+def get_users(_: None = Depends(require_admin)):
+    users = db.list_users()
+    return {"count": len(users), "users": users}
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# PLATFORM DATA — Newsletter signups & contact leads (persisted via db.py)
+# ═════════════════════════════════════════════════════════════════════════════
+
+class NewsletterSubscribeRequest(BaseModel):
+    email: EmailStr
+
+
+class ContactRequest(BaseModel):
+    name: str = Field(min_length=1, max_length=120)
+    email: EmailStr
+    message: str = Field(min_length=1, max_length=2000)
+
+
+@app.get("/api/health/db")
+def db_health():
+    """Reports which data backend is active (mongodb or the local tinydb fallback)."""
+    return {"backend": db.BACKEND_NAME}
+
+
+@app.post("/api/newsletter/subscribe", status_code=201)
+def subscribe_newsletter(payload: NewsletterSubscribeRequest):
+    email = payload.email.lower()
+    created = db.insert_subscriber({"email": email, "created_at": db.now_iso()})
+    if not created:
+        return {"status": "already_subscribed", "email": email}
+    return {"status": "subscribed", "email": email}
+
+
+@app.get("/api/admin/newsletter/subscribers")
+def get_newsletter_subscribers(_: None = Depends(require_admin)):
+    subscribers = db.list_subscribers()
+    return {"count": len(subscribers), "subscribers": subscribers}
+
+
+@app.post("/api/contact", status_code=201)
+def submit_contact(payload: ContactRequest):
+    doc = payload.model_dump()
+    doc["created_at"] = db.now_iso()
+    db.insert_contact_message(doc)
+    return {"status": "received"}
+
+
+@app.get("/api/admin/contact-messages")
+def get_contact_messages(_: None = Depends(require_admin)):
+    messages = db.list_contact_messages()
+    return {"count": len(messages), "messages": messages}
 
 
 # ═════════════════════════════════════════════════════════════════════════════

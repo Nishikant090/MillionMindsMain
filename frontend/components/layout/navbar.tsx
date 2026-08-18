@@ -5,13 +5,17 @@ import Link from "next/link";
 import { useScrollPosition } from "@/hooks/use-scroll-position";
 import { Logo } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, UserCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/lib/auth-context";
+import { AuthModal } from "@/components/auth/auth-modal";
 
 export function Navbar() {
   const scrollY = useScrollPosition();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [authModal, setAuthModal] = useState<"login" | "signup" | null>(null);
+  const { user, logout } = useAuth();
   const isScrolled = scrollY > 20;
 
   const navItems = [
@@ -57,12 +61,26 @@ export function Navbar() {
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              Login
-            </Button>
-            <Button variant="primary" size="sm">
-              Get Started
-            </Button>
+            {user ? (
+              <>
+                <div className="flex items-center gap-2 text-sm font-semibold text-dark">
+                  <UserCircle2 className="w-5 h-5 text-primary" />
+                  {user.name.split(" ")[0]}
+                </div>
+                <Button variant="ghost" size="sm" onClick={logout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="ghost" size="sm" onClick={() => setAuthModal("login")}>
+                  Login
+                </Button>
+                <Button variant="primary" size="sm" onClick={() => setAuthModal("signup")}>
+                  Get Started
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Toggle Button */}
@@ -98,27 +116,57 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="flex flex-col gap-3 pt-3">
-                <Button
-                  variant="outline"
-                  size="md"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full"
-                >
-                  Login
-                </Button>
-                <Button
-                  variant="primary"
-                  size="md"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full"
-                >
-                  Get Started
-                </Button>
+                {user ? (
+                  <>
+                    <div className="flex items-center gap-2 text-sm font-semibold text-dark px-1">
+                      <UserCircle2 className="w-5 h-5 text-primary" />
+                      {user.name}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="md"
+                      onClick={() => {
+                        logout();
+                        setMobileMenuOpen(false);
+                      }}
+                      className="w-full"
+                    >
+                      Logout
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button
+                      variant="outline"
+                      size="md"
+                      onClick={() => {
+                        setAuthModal("login");
+                        setMobileMenuOpen(false);
+                      }}
+                      className="w-full"
+                    >
+                      Login
+                    </Button>
+                    <Button
+                      variant="primary"
+                      size="md"
+                      onClick={() => {
+                        setAuthModal("signup");
+                        setMobileMenuOpen(false);
+                      }}
+                      className="w-full"
+                    >
+                      Get Started
+                    </Button>
+                  </>
+                )}
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {authModal && <AuthModal mode={authModal} onClose={() => setAuthModal(null)} />}
     </>
   );
 }
