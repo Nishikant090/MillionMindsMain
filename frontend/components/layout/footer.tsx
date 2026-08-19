@@ -31,17 +31,16 @@ export function Footer() {
   const quickLinks = [
     { name: "Home", href: "#home" },
     { name: "About Us", href: "#about" },
-    { name: "Partners", href: "#partners" },
-    { name: "Testimonials", href: "#testimonials" },
+    { name: "Services", href: "#services" },
     { name: "Contact", href: "#contact" },
   ];
 
   const services = [
-    { name: "AI Career Assistant", href: "/services/service-1" },
-    { name: "Aspire - Jobs & Internships", href: "/services/service-2" },
-    { name: "Campus TaaS Platform", href: "/services/service-3" },
-    { name: "Startup Incubation", href: "/services/service-5" },
-    { name: "Hackathon Platform", href: "/services/service-6" },
+    { name: "AI Boot Camp", href: "/services/service-1" },
+    { name: "Aspire – Talent Connect Platform", href: "/services/service-2" },
+    { name: "Campus TaaS", href: "/services/service-3" },
+    { name: "AI Literacy Mission @ Campus", href: "/services/service-10" },
+    { name: "ELEVATE: TechFests@Campus", href: "/services/service-11" },
   ];
 
   const socials = [

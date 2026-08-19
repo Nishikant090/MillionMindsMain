@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ArrowLeft, CheckCircle2, LayoutDashboard, Brain, Briefcase, GraduationCap, BookOpen, Rocket, Trophy, Building, BarChart3 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, LayoutDashboard, Brain, Briefcase, GraduationCap, Bot, Award, TrendingUp, RefreshCw, ShieldCheck, BarChart3, Lightbulb, FlaskConical } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
 
@@ -15,7 +15,8 @@ const EXTERNAL_REDIRECTS: Record<string, string> = {
   "service-11": "https://elevate-tech-fests-campus.vercel.app",
 };
 
-// Static mapping for service-1 to service-9 metadata
+// Static mapping for not-yet-live service metadata. Descriptions sourced
+// directly from Millionminds' own service notes.
 const servicesMap: Record<
   string,
   {
@@ -25,94 +26,104 @@ const servicesMap: Record<
     features: string[];
   }
 > = {
-  "service-1": {
-    title: "AI Boot Camp",
-    description: "Join an immersive boot camp experience focused on future-ready AI, innovation, and career growth.",
-    icon: <Brain className="w-8 h-8 text-primary" />,
-    features: [
-      "Immersive AI Learning Tracks",
-      "Hands-On Innovation Workshops",
-      "Career-Ready Skill Building",
-    ],
-  },
   "service-2": {
-    title: "Aspire - Jobs & Internships",
-    description: "Aspire — Jobs & Internships Platform for Students and Companies.",
+    title: "Aspire – Talent Connect Platform",
+    description: "Structured job openings sourced from startup founders, aligned with college placement cells — an added pipeline of opportunities during campus drives.",
     icon: <Briefcase className="w-8 h-8 text-secondary" />,
     features: [
-      "1-Click Verified Applications Integration",
-      "Earn-While-You-Learn Experienceship Projects",
-      "Structured Industry Experience Certificates",
+      "Job openings sourced directly from startup founders",
+      "Aligned with T&P cells at partner colleges",
+      "Unique learning & professional growth opportunities",
     ],
   },
   "service-3": {
-    title: "Campus TaaS Platform",
-    description: "Connect with vetted, agile student teams trained to handle technical pipelines and operational use cases.",
+    title: "Campus TaaS",
+    description: "B2B consultancy where student tech teams (CSE-IT/MCA) help startups and SMBs adopt AI solutions to enhance productivity, charged on project specs.",
     icon: <GraduationCap className="w-8 h-8 text-accent" />,
     features: [
-      "Learn & Earn Outsourcing Framework",
-      "Technical Pipelines & Delivery Metrics",
-      "Real-Life Operational Use Cases",
+      "Outsourced AI adaptation service for StartUp & SMB clients",
+      "Delivered by CSE-IT/MCA students skilled in AI & GenAI tools",
+      "Tech + Operational student team enables client AI adoption",
     ],
   },
   "service-4": {
-    title: "AI Boot Camps",
-    description: "Hands-on, live in-campus programs across tech, industry-application, and generalist tracks.",
-    icon: <BookOpen className="w-8 h-8 text-emerald-500" />,
+    title: "My AI Buddy!",
+    description: "\"Do it yourself, with your student buddy by your side.\" Student mentors help SMBs and startups develop their own AI tools and web solutions, hands-on.",
+    icon: <Bot className="w-8 h-8 text-emerald-500" />,
     features: [
-      "Strategic Partnership with Domain Knowledge Experts",
-      "Industry Application-Based Bespoke Programs",
-      "Essential GenAI Tool Toolkits for Productivity",
+      "Students with AI tool expertise act as process enablers",
+      "Charged to clients on project specs, like a consultancy",
+      "Focused on solving day-to-day productivity problems",
     ],
   },
   "service-5": {
-    title: "AI Studio",
-    description: "Build, test, and deploy GenAI applications and custom LLM models in a collaborative, low-code sandbox environment.",
-    icon: <Rocket className="w-8 h-8 text-rose-500" />,
+    title: "AI Master Class",
+    description: "\"Every generation has its edge. This one's is AI.\" Regular upskilling sessions on cutting-edge, application-oriented, future-focused AI skills.",
+    icon: <Award className="w-8 h-8 text-rose-500" />,
     features: [
-      "Collaborative GenAI Sandboxes & Playgrounds",
-      "No-Code & Low-Code Application Prototyping",
-      "Custom Model Deployments & API Integrations",
+      "Bouquet of sessions for continuous relevance",
+      "Application-oriented, not just theory",
+      "Aimed at both students and working professionals",
     ],
   },
   "service-6": {
-    title: "Hackathon Platform",
-    description: "Host or join competitive sprint events, assemble multi-disciplinary builder teams, and submit project designs.",
-    icon: <Trophy className="w-8 h-8 text-yellow-500" />,
+    title: "ARIA: Digital Marketing for NBFCs",
+    description: "A dedicated platform where student talent from Management, Finance, MCA, and courses like BMM/BMS/BBA/BBI deliver AI-enabled digital marketing services for NBFCs, in a unique learn-and-earn mode.",
+    icon: <TrendingUp className="w-8 h-8 text-yellow-500" />,
     features: [
-      "Developer Team Builder Matchmaking System",
-      "Live Sprint Submissions & Sandbox Evaluator",
-      "Jury Grading Matrix & Cash Prize Allocator",
+      "Student teams benchmarked at professional service-firm quality",
+      "Cost-advantage, value-for-money service delivery",
+      "Learn-and-earn model for participating students",
     ],
   },
   "service-7": {
-    title: "Student Dashboard",
-    description: "Analyze coursework grades, active internship applications, test outcomes, and project timelines.",
-    icon: <LayoutDashboard className="w-8 h-8 text-sky-500" />,
+    title: "FUSION: Alumni & Campus Reconnect",
+    description: "Focused learning programmes for alumni navigating a working world where skills go stale fast — short-term upskilling courses and structured re-skilling for mid-career pivots.",
+    icon: <RefreshCw className="w-8 h-8 text-sky-500" />,
     features: [
-      "Centralized Activity & Assignment Logs",
-      "Skill Profile Matrix with Shareable Badges",
-      "Personalized Corporate Job Match Analytics",
+      "Built with industry professionals and academics",
+      "Short-burst learning formats for working professionals",
+      "Cross-functional and multi-domain learning tracks",
     ],
   },
   "service-8": {
-    title: "Company Portal",
-    description: "Allow recruiting corporations to post job requirements, review candidate profiles, and schedule panel interviews.",
-    icon: <Building className="w-8 h-8 text-violet-500" />,
+    title: "AEGIS: Faculty Knowledge Programme",
+    description: "Exchange of thoughts and views between college faculty and AI tech teams to imbibe the latest technology advances, including day-long on-campus workshops.",
+    icon: <ShieldCheck className="w-8 h-8 text-violet-500" />,
     features: [
-      "Job/Internship Posting Builder",
-      "Candidate ATS Filtering & Pipeline Board",
-      "Integrated Live Interview Scheduler",
+      "Content is technology- or domain-focused, per campus",
+      "Collaborative knowledge exchange, not one-way lectures",
+      "Keeps faculty current with fast-moving AI tooling",
     ],
   },
   "service-9": {
-    title: "Analytics Dashboard",
-    description: "Provide campus administrators and institutional heads detailed metric logs on average package yields, student skill rankings, and recruiter trends.",
+    title: "Campus Analytics",
+    description: "A competitive benchmarking service comparing and reporting campus performance on quantifiable metrics, against defined peer groups or best-in-class institutions.",
     icon: <BarChart3 className="w-8 h-8 text-cyan-500" />,
     features: [
-      "Average CTC & Employment Rate Graphics",
-      "Curriculum Coding Proficiency Metrics",
-      "Annual Placement Success Summarizer",
+      "Benchmarks at market level or against a chosen parity set",
+      "Quantifiable, metric-driven comparisons",
+      "Helps institutions identify where to improve",
+    ],
+  },
+  "service-12": {
+    title: "ALLIANT: Innovation & Incubation",
+    description: "Students pitch innovative ideas — big or small — to a jury of real startup founders for mentorship and perspective, with a path from idea to campus-based incubation.",
+    icon: <Lightbulb className="w-8 h-8 text-amber-500" />,
+    features: [
+      "Direct mentorship from real startup-founder practitioners",
+      "Guidance for high-potential ideas on next steps",
+      "Incubation support to turn ideas into campus startups",
+    ],
+  },
+  "service-13": {
+    title: "ACORN: R&D as a Service",
+    description: "A marketplace bridging startups seeking domain expertise and R&D infrastructure with academic institutions — campuses commit student and faculty teams with clear time commitments.",
+    icon: <FlaskConical className="w-8 h-8 text-teal-500" />,
+    features: [
+      "Taps into the talent base across partner campuses",
+      "Campus commits team + faculty + infrastructure access",
+      "Structured around clear deliverables and timelines",
     ],
   },
 };
@@ -131,6 +142,8 @@ export async function generateStaticParams() {
     { serviceId: "service-9" },
     { serviceId: "service-10" },
     { serviceId: "service-11" },
+    { serviceId: "service-12" },
+    { serviceId: "service-13" },
   ];
 }
 

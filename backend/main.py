@@ -46,23 +46,23 @@ SERVICES_SUMMARY = [
     {
         "id": "service-1",
         "name": "AI Boot Camp",
-        "description": "Join an immersive learning experience focused on AI, innovation, and career-ready skills.",
+        "description": "Skill-set training to make students industry-ready — AI Fundamentals and AI Skills for IT and Non-IT students, aligned to functional domains employers actually need.",
         "icon": "brain",
         "link": "https://million-main.vercel.app/",
         "status": "active",
     },
     {
         "id": "service-2",
-        "name": "Aspire - Jobs & Internships",
-        "description": "Aspire — Jobs & Internships Platform for Students and Companies.",
+        "name": "Aspire – Talent Connect Platform",
+        "description": "Structured job openings sourced from startup founders, aligned with college placement cells — an added pipeline of opportunities during campus drives.",
         "icon": "briefcase",
         "link": "https://aspire-frontend.onrender.com",
         "status": "active",
     },
     {
         "id": "service-3",
-        "name": "Campus TaaS Platform",
-        "description": "Connect with vetted, agile student teams trained to handle technical pipelines and operational use cases.",
+        "name": "Campus TaaS",
+        "description": "B2B consultancy where student tech teams (CSE-IT/MCA) help startups and SMBs adopt AI solutions to enhance productivity, charged on project specs.",
         "icon": "graduation-cap",
         "link": "https://aria-campus-taas.onrender.com/",
         "status": "active",
@@ -70,7 +70,7 @@ SERVICES_SUMMARY = [
     {
         "id": "service-10",
         "name": "AI Literacy Mission @ Campus",
-        "description": "A free, mentor-led 70-hour programme training students in practical GenAI skills — MasterClass, self-practice, and a capstone project.",
+        "description": "Training One Million GenZ students and young working professionals in AI fundamentals and practical GenAI tools, free of cost, taught by a peer mentors' collective.",
         "icon": "sparkles",
         "link": "https://ai-literacy-mission-campus.vercel.app",
         "status": "active",
@@ -78,56 +78,72 @@ SERVICES_SUMMARY = [
     {
         "id": "service-11",
         "name": "ELEVATE: TechFests@Campus",
-        "description": "Connects campus hackathons, ideathons, and tech fests with startups and corporates as sponsors, mentors, and collaborators.",
+        "description": "A marketplace connecting campus tech sessions, hackathons, and seminars with startups and corporates as sponsors, mentors, and research collaborators.",
         "icon": "handshake",
         "link": "https://elevate-tech-fests-campus.vercel.app",
         "status": "active",
     },
     {
         "id": "service-4",
-        "name": "AI Boot Camps",
-        "description": "Hands-on, live in-campus programs across tech, industry-application, and generalist tracks.",
-        "icon": "book-open",
-        "link": "https://million-main.vercel.app/",
-        "status": "active",
+        "name": "My AI Buddy!",
+        "description": "\"Do it yourself, with your student buddy by your side.\" Student mentors help SMBs and startups develop their own AI tools and web solutions, hands-on.",
+        "icon": "bot",
+        "link": None,
+        "status": "coming_soon",
     },
     {
         "id": "service-5",
-        "name": "AI Studio",
-        "description": "Build, test, and deploy GenAI applications and custom LLM models in a collaborative, low-code sandbox environment.",
-        "icon": "rocket",
+        "name": "AI Master Class",
+        "description": "\"Every generation has its edge — this one's is AI.\" A bouquet of cutting-edge, application-oriented AI sessions for regular upskilling.",
+        "icon": "award",
         "link": None,
         "status": "coming_soon",
     },
     {
         "id": "service-6",
-        "name": "Hackathon Platform",
-        "description": "Form teams, build working prototypes, and compete in nationwide innovation challenges.",
-        "icon": "trophy",
+        "name": "ARIA: Digital Marketing for NBFCs",
+        "description": "A learn-and-earn platform where student talent from Management, Finance, MCA, and BMM/BMS/BBA backgrounds delivers digital marketing services at professional benchmarks.",
+        "icon": "trending-up",
         "link": None,
         "status": "coming_soon",
     },
     {
         "id": "service-7",
-        "name": "Student Dashboard",
-        "description": "Track your coursework metrics, skill scores, active applications, and upcoming events.",
-        "icon": "layout-dashboard",
+        "name": "FUSION: Alumni & Campus Reconnect",
+        "description": "Focused upskilling and re-skilling programmes for alumni navigating mid-career pivots, built with industry professionals and academics.",
+        "icon": "refresh-cw",
         "link": None,
         "status": "coming_soon",
     },
     {
         "id": "service-8",
-        "name": "Company Portal",
-        "description": "Post internship requirements, review candidate profiles, and schedule panel interviews.",
-        "icon": "building",
+        "name": "AEGIS: Faculty Knowledge Programme",
+        "description": "Day-long workshops and collaborative knowledge exchange between college faculty and AI tech teams on the latest technology advances.",
+        "icon": "shield-check",
         "link": None,
         "status": "coming_soon",
     },
     {
         "id": "service-9",
-        "name": "Analytics Dashboard",
-        "description": "Access institutional metrics on placement rates, average package distributions, and skill logs.",
+        "name": "Campus Analytics",
+        "description": "A competitive benchmarking service comparing campus performance across quantifiable metrics, against defined peer sets or best-in-class institutions.",
         "icon": "bar-chart-3",
+        "link": None,
+        "status": "coming_soon",
+    },
+    {
+        "id": "service-12",
+        "name": "ALLIANT: Innovation & Incubation",
+        "description": "Students pitch innovative ideas to a jury of real startup founders for mentorship, then get process support to turn the strongest ideas into campus startups.",
+        "icon": "lightbulb",
+        "link": None,
+        "status": "coming_soon",
+    },
+    {
+        "id": "service-13",
+        "name": "ACORN: R&D as a Service",
+        "description": "A marketplace bridging startups seeking domain expertise and R&D infrastructure with campus teams — students, faculty, and lab access on committed timelines.",
+        "icon": "flask-conical",
         "link": None,
         "status": "coming_soon",
     },
@@ -185,9 +201,9 @@ def get_ai_boot_camp():
     return {
         "service_id": "service-1",
         "name": "AI Boot Camp",
-        "description": "Join an immersive learning experience focused on AI, innovation, and career-ready skills.",
+        "description": "Skill-set training to make students industry-ready — AI Fundamentals and AI Skills for IT and Non-IT students, aligned to functional domains employers actually need.",
         "status": "active",
-        "provider": "Million Minds",
+        "provider": "Millionminds",
         "frontend_url": "https://million-main.vercel.app/",
         "backend_url": AI_BOOTCAMP_API,
         "api_docs": f"{AI_BOOTCAMP_API}/docs",
@@ -368,10 +384,10 @@ def get_internship_portal():
     """Metadata for the Internship Portal (Aspire) service."""
     return {
         "service_id": "service-2",
-        "name": "Internship Portal",
-        "description": "Find verified experienceships and paid internships with startup builders and corporate giants.",
+        "name": "Aspire – Talent Connect Platform",
+        "description": "Structured job openings sourced from startup founders, aligned with college placement cells — an added pipeline of opportunities during campus drives.",
         "status": "active",
-        "provider": "Aspire",
+        "provider": "Millionminds",
         "frontend_url": "https://aspire-frontend.onrender.com",
         "backend_url": ASPIRE_API,
         "api_docs": f"{ASPIRE_API}/docs",
@@ -532,7 +548,7 @@ async def internship_portal_company_jobs(
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-# SERVICE 3 — Placement Management  (Aria Campus TaaS — frontend only)
+# SERVICE 3 — Campus TaaS  (Aria Campus TaaS — frontend only)
 # ═════════════════════════════════════════════════════════════════════════════
 
 @app.get("/api/services/service-3")
@@ -548,18 +564,18 @@ def get_placement_management():
 @app.get("/api/services/service-3/info")
 def get_placement_management_info():
     """
-    Returns JSON metadata for the Placement Management service
+    Returns JSON metadata for the Campus TaaS service
     without triggering a redirect.
     """
     return {
         "service_id": "service-3",
-        "name": "Placement Management",
+        "name": "Campus TaaS",
         "description": (
-            "Optimize your corporate campus hiring, coordinate recruitment drives, "
-            "and track incoming offers."
+            "B2B consultancy where student tech teams (CSE-IT/MCA) help startups "
+            "and SMBs adopt AI solutions to enhance productivity, charged on project specs."
         ),
         "status": "active",
-        "provider": "Aria Campus TaaS",
+        "provider": "Millionminds",
         "url": ARIA_CAMPUS_TAAS_URL,
         "endpoints": {
             "trigger":  "/api/services/service-3",        # → 302 redirect to Aria TaaS
@@ -567,10 +583,9 @@ def get_placement_management_info():
             "health":   "/api/services/service-3/health",
         },
         "features": [
-            "Campus recruitment drive coordination",
-            "Offer tracking and management",
-            "Corporate hiring pipeline",
-            "Student placement analytics",
+            "Outsourced AI adaptation service for StartUp & SMB clients",
+            "Delivered by Engg CSE-IT/MCA students skilled in AI tools & GenAI agents",
+            "Tech + Operational student team enables client AI adoption",
         ],
     }
 
@@ -715,55 +730,128 @@ def get_contact_messages(_: None = Depends(require_admin)):
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-# SERVICES 4-9 — Placeholder stubs (not yet live)
+# SERVICES 4-9, 12-13 — Real Millionminds initiatives, not yet live as standalone
+# apps. Descriptions sourced directly from Millionminds' own service notes.
 # ═════════════════════════════════════════════════════════════════════════════
 
 @app.get("/api/services/service-4")
-def get_lms():
+def get_ai_buddy():
     return {
         "service_id": "service-4",
-        "name": "Learning Management System",
+        "name": "My AI Buddy!",
+        "description": "\"Do it yourself, with your student buddy by your side.\" A B2B service where campus student teams help StartUps and SMBs develop their own AI and web solutions for day-to-day business problems.",
         "status": "coming_soon",
+        "provider": "Millionminds",
+        "features": [
+            "Students with AI tool expertise act as process enablers and mentors",
+            "Charged to clients on project specs, like a consultancy engagement",
+            "Focused on solving specific day-to-day productivity problems",
+        ],
     }
 
 @app.get("/api/services/service-5")
-def get_ai_studio():
+def get_ai_master_class():
     return {
         "service_id": "service-5",
-        "name": "AI Studio",
+        "name": "AI Master Class",
+        "description": "\"Every generation has its edge. This one's is AI.\" Regular upskilling sessions on cutting-edge, application-oriented, future-focused AI skills.",
         "status": "coming_soon",
+        "provider": "Millionminds",
+        "features": [
+            "Bouquet of sessions for continuous relevance in a capability-driven economy",
+            "Application-oriented, not just theory",
+            "Aimed at both students and working professionals",
+        ],
     }
 
 @app.get("/api/services/service-6")
-def get_hackathon_platform():
+def get_aria_nbfc():
     return {
         "service_id": "service-6",
-        "name": "Hackathon Platform",
+        "name": "ARIA: Digital Marketing for NBFCs",
+        "description": "A dedicated platform where student talent from Management, Finance, MCA, and courses like BMM/BMS/BBA/BBI deliver AI-enabled digital marketing services for NBFCs, in a unique learn-and-earn mode.",
         "status": "coming_soon",
+        "provider": "Millionminds",
+        "features": [
+            "Student teams benchmarked at professional service-firm quality",
+            "Cost-advantage, value-for-money service delivery",
+            "Learn-and-earn model for participating students",
+        ],
     }
 
 @app.get("/api/services/service-7")
-def get_student_dashboard():
+def get_fusion():
     return {
         "service_id": "service-7",
-        "name": "Student Dashboard",
+        "name": "FUSION: Alumni & Campus Reconnect",
+        "description": "Focused learning programmes for alumni navigating a working world where skills go stale fast — short-term upskilling courses and structured re-skilling for mid-career pivots.",
         "status": "coming_soon",
+        "provider": "Millionminds",
+        "features": [
+            "Built in coordination with industry professionals and academics",
+            "Short-burst learning formats for working professionals",
+            "Cross-functional and multi-domain learning tracks",
+        ],
     }
 
 @app.get("/api/services/service-8")
-def get_company_portal():
+def get_aegis():
     return {
         "service_id": "service-8",
-        "name": "Company Portal",
+        "name": "AEGIS: Faculty Knowledge Programme",
+        "description": "Exchange of thoughts and views between college faculty and AI tech teams to imbibe the latest technology advances and innovations, including day-long on-campus workshops.",
         "status": "coming_soon",
+        "provider": "Millionminds",
+        "features": [
+            "Content is technology- or domain-focused, tailored per campus",
+            "Collaborative knowledge exchange, not one-way lectures",
+            "Keeps faculty current with fast-moving AI tooling",
+        ],
     }
 
 @app.get("/api/services/service-9")
-def get_analytics_dashboard():
+def get_campus_analytics():
     return {
         "service_id": "service-9",
-        "name": "Analytics Dashboard",
+        "name": "Campus Analytics",
+        "description": "A competitive benchmarking service comparing and reporting campus performance on quantifiable metrics, against defined peer groups, next-tier campuses, or best-in-class institutions.",
         "status": "coming_soon",
+        "provider": "Millionminds",
+        "features": [
+            "Benchmarks at overall market level or against a chosen parity set",
+            "Quantifiable, metric-driven comparisons",
+            "Helps institutions identify where they stand and where to improve",
+        ],
+    }
+
+@app.get("/api/services/service-12")
+def get_alliant():
+    return {
+        "service_id": "service-12",
+        "name": "ALLIANT: Innovation & Incubation",
+        "description": "Students pitch innovative ideas — big or small — to a jury of real startup founders for mentorship and perspective, with a path from idea to campus-based incubation.",
+        "status": "coming_soon",
+        "provider": "Millionminds",
+        "features": [
+            "Direct mentorship from real startup-founder practitioners",
+            "Guidance for high-potential ideas on next steps",
+            "Incubation support to turn student ideas into startups on campus",
+        ],
+    }
+
+@app.get("/api/services/service-13")
+def get_acorn():
+    return {
+        "service_id": "service-13",
+        "name": "ACORN: R&D as a Service",
+        "description": "A marketplace bridging startups seeking domain expertise and R&D infrastructure with academic institutions — campuses commit student and faculty teams with clear time commitments.",
+        "status": "coming_soon",
+        "provider": "Millionminds",
+        "features": [
+            "Taps into the talent base available across partner campuses",
+            "Campus commits team + faculty + infrastructure access",
+            "Structured around clear deliverables and timelines",
+        ],
     }
 
 
