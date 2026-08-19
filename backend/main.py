@@ -9,8 +9,8 @@ import db
 import security
 
 app = FastAPI(
-    title="Million Minds AI Platform Backend API",
-    description="Python FastAPI backend serving EdTech, Internship, and Placement services.",
+    title="Millionminds Ecosystem Portal Backend API",
+    description="Python FastAPI backend serving the Millionminds ecosystem portal's services, auth, and lead capture.",
     version="1.0.0"
 )
 
@@ -159,8 +159,8 @@ def require_user(authorization: str = Header(default="")) -> dict:
 def read_root():
     return {
         "status": "online",
-        "platform": "Million Minds AI",
-        "message": "Welcome to the Platform Backend API. The API service is fully operational."
+        "platform": "Millionminds",
+        "message": "Welcome to the Millionminds Ecosystem Portal API. The API service is fully operational."
     }
 
 

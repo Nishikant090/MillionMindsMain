@@ -9,12 +9,12 @@ export function WhyChooseUsSection() {
     {
       icon: <Award className="w-5 h-5 text-primary" />,
       title: "Industry Ready Programs",
-      description: "Curriculum designed and updated in partnership with top employers to match current market demands.",
+      description: "Curriculum designed to track current market demands and 21st-century workplace skills.",
     },
     {
       icon: <Cpu className="w-5 h-5 text-secondary" />,
-      title: "AI Driven Platform",
-      description: "Smart skill matching algorithms map your performance and projects directly to corporate needs.",
+      title: "Talent-as-a-Service",
+      description: "Taps into the domain knowledge of engineering students to create Talent-as-a-Service solutions for corporate clients.",
     },
     {
       icon: <Flame className="w-5 h-5 text-accent" />,
@@ -29,7 +29,7 @@ export function WhyChooseUsSection() {
     {
       icon: <Sparkles className="w-5 h-5 text-yellow-500" />,
       title: "Innovation Centered",
-      description: "Encouraging a startup mindset with incubation access, IP filings support, and pitch decks templates.",
+      description: "Encouraging a startup mindset with incubation access and structured ideation support.",
     },
     {
       icon: <GraduationCap className="w-5 h-5 text-rose-500" />,
@@ -56,23 +56,23 @@ export function WhyChooseUsSection() {
               Unlocking the True Potential of Indian Talent
             </h2>
             <p className="text-slate-600 text-sm leading-relaxed font-normal">
-              Traditional education teaches the theory. We provide the ecosystem to execute. By combining automated AI evaluations with human-driven mentorship, we verify student skills through tangible projects.
+              Traditional education teaches the theory. We provide the ecosystem to execute — combining structured skill-building with hands-on, project-based experience.
             </p>
-            
+
             {/* List of benefits */}
             <div className="flex flex-col gap-4 mt-2">
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-bold text-dark">Proven Employability Improvement</h4>
-                  <p className="text-xs text-slate-500">Graduates of our program see a 2x increase in technical skill ratings.</p>
+                  <h4 className="text-sm font-bold text-dark">Hands-On, Experience-First Learning</h4>
+                  <p className="text-xs text-slate-500">Skills built through real projects and experienceships, not passive lectures.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-bold text-dark">Tier-2 and Tier-3 Focused</h4>
-                  <p className="text-xs text-slate-500">Bringing corporate access and networks directly to campus doorsteps.</p>
+                  <h4 className="text-sm font-bold text-dark">Campus-First Focus</h4>
+                  <p className="text-xs text-slate-500">Bringing corporate access and networks directly to engineering college campuses.</p>
                 </div>
               </div>
             </div>

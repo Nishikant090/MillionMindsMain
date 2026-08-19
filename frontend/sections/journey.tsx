@@ -38,7 +38,7 @@ export function JourneySection() {
       icon: <Award className="w-5 h-5 text-white" />,
       title: "Get Placed",
       subtitle: "Launch Your Career",
-      description: "Coordinate with our placement portal to schedule technical interviews and secure job offers at global corporate partners.",
+      description: "Coordinate with our placement portal to schedule technical interviews and pursue job offers with recruiting companies.",
       color: "bg-rose-500 shadow-rose-500/30",
     },
   ];

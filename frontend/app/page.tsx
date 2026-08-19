@@ -4,12 +4,9 @@ import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/sections/hero";
 import { AboutSection } from "@/sections/about";
 import { FeaturesSection } from "@/sections/features";
-import { StatisticsSection } from "@/sections/statistics";
 import { ServicesSection } from "@/sections/services";
 import { WhyChooseUsSection } from "@/sections/why-choose-us";
 import { JourneySection } from "@/sections/journey";
-import { TestimonialsSection } from "@/sections/testimonials";
-import { PartnersSection } from "@/sections/partners";
 import { CTASection } from "@/sections/cta";
 
 export default function Home() {
@@ -29,9 +26,6 @@ export default function Home() {
         {/* Capabilities grid */}
         <FeaturesSection />
 
-        {/* Metric counts */}
-        <StatisticsSection />
-
         {/* Services mapping */}
         <ServicesSection />
 
@@ -40,12 +34,6 @@ export default function Home() {
 
         {/* Vertical timeline student road */}
         <JourneySection />
-
-        {/* Feedback block */}
-        <TestimonialsSection />
-
-        {/* Partner marquee */}
-        <PartnersSection />
 
         {/* Closing action */}
         <CTASection />

@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Brain, Award, ShieldCheck, Briefcase } from "lucide-react";
+import { ArrowRight, Sparkles, Brain, Handshake, GraduationCap } from "lucide-react";
 import Link from "next/link";
 
 export function HeroSection() {
@@ -31,7 +31,7 @@ export function HeroSection() {
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/25 text-xs font-semibold uppercase tracking-wider"
             >
               <Sparkles className="w-3.5 h-3.5" />
-              AI-Powered Next-Gen Career Ecosystem
+              Millionminds Ecosystem Portal
             </motion.div>
 
             {/* Main Title */}
@@ -43,9 +43,9 @@ export function HeroSection() {
             >
               Empowering Students Through{" "}
               <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                AI, Innovation
+                Entrepreneurship
               </span>{" "}
-              & Career Opportunities
+              & 21st Century Skills
             </motion.h1>
 
             {/* Subheading */}
@@ -55,7 +55,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base md:text-lg text-slate-600 leading-relaxed font-normal"
             >
-              Bridge the gap between academic education and corporate success. Experience an all-in-one platform built for hands-on learning, incubation cohorts, verified internships, and modern placements.
+              Millionminds is the umbrella brand behind our Entrepreneurship Education Programme and 21st Century Skill Development Programme — helping engineering college students build technological skills and life skills through hands-on, real-world experience. This portal is where our live initiatives and partner platforms come together.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -77,42 +77,21 @@ export function HeroSection() {
                 </Button>
               </Link>
             </motion.div>
-
-            {/* Hero Trust Badges / Stats */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-200/80 w-full mt-4"
-            >
-              <div>
-                <h4 className="text-xl md:text-2xl font-bold text-dark">50K+</h4>
-                <p className="text-xs text-slate-500 font-medium">Students Upskilled</p>
-              </div>
-              <div>
-                <h4 className="text-xl md:text-2xl font-bold text-dark">100+</h4>
-                <p className="text-xs text-slate-500 font-medium">Partner Colleges</p>
-              </div>
-              <div>
-                <h4 className="text-xl md:text-2xl font-bold text-dark">500+</h4>
-                <p className="text-xs text-slate-500 font-medium">Hiring Corporations</p>
-              </div>
-            </motion.div>
           </div>
 
-          {/* Right Column: Premium Dashboard Mockup */}
+          {/* Right Column: Ecosystem Modules Snapshot */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-5 relative w-full flex justify-center"
           >
-            {/* Dashboard Container Card */}
-            <div className="relative w-full max-w-[460px] aspect-[4/3] rounded-2xl glass border border-white/60 shadow-2xl shadow-primary/10 p-5 flex flex-col justify-between overflow-hidden group">
+            {/* Snapshot Card */}
+            <div className="relative w-full max-w-[460px] rounded-2xl glass border border-white/60 shadow-2xl shadow-primary/10 p-5 flex flex-col gap-4 overflow-hidden group">
               {/* Internal glowing blob */}
               <div className="absolute -left-12 -top-12 w-32 h-32 rounded-full bg-secondary/15 blur-2xl group-hover:scale-150 transition-all duration-700" />
-              
-              {/* Header of Mockup */}
+
+              {/* Header */}
               <div className="flex items-center justify-between pb-3 border-b border-slate-200/50">
                 <div className="flex items-center gap-2">
                   <div className="w-3.5 h-3.5 rounded-full bg-red-400" />
@@ -120,78 +99,52 @@ export function HeroSection() {
                   <div className="w-3.5 h-3.5 rounded-full bg-green-400" />
                 </div>
                 <div className="px-3 py-1 rounded bg-slate-100 text-[10px] font-bold text-slate-500">
-                  STUDENT PORTAL
+                  ECOSYSTEM MODULES
                 </div>
               </div>
 
-              {/* Grid content */}
-              <div className="grid grid-cols-2 gap-4 my-4 flex-1">
-                {/* Micro Card 1: AI Score */}
-                <div className="p-3.5 rounded-xl bg-white/80 border border-slate-100 shadow-sm flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-slate-500 font-semibold uppercase">AI Career Fit</span>
-                    <Brain className="w-4 h-4 text-primary animate-pulse" />
+              {/* Real, live module list */}
+              <div className="flex flex-col gap-3">
+                <div className="p-3.5 rounded-xl bg-white/80 border border-slate-100 shadow-sm flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Brain className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-bold text-slate-700">AI Boot Camp</span>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-extrabold text-slate-800">98%</h3>
-                    <p className="text-[9px] text-green-500 font-medium">Software Engineer</p>
-                  </div>
-                </div>
-
-                {/* Micro Card 2: Applications */}
-                <div className="p-3.5 rounded-xl bg-white/80 border border-slate-100 shadow-sm flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-slate-500 font-semibold uppercase">Internships</span>
-                    <Briefcase className="w-4 h-4 text-secondary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-extrabold text-slate-800">4 Active</h3>
-                    <p className="text-[9px] text-slate-500 font-medium">2 Under Review</p>
-                  </div>
-                </div>
-
-                {/* Micro Card 3: Hackathons */}
-                <div className="p-3.5 rounded-xl bg-white/80 border border-slate-100 shadow-sm flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-slate-500 font-semibold uppercase">Hackathons</span>
-                    <Award className="w-4 h-4 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-extrabold text-slate-800">1st Place</h3>
-                    <p className="text-[9px] text-secondary font-medium">Smart India Hack</p>
-                  </div>
-                </div>
-
-                {/* Micro Card 4: Verified Status */}
-                <div className="p-3.5 rounded-xl bg-white/80 border border-slate-100 shadow-sm flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-slate-500 font-semibold uppercase">Resume AI</span>
-                    <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-extrabold text-emerald-600">8.9/10</h3>
-                    <p className="text-[9px] text-slate-500 font-medium">ATS Score Verified</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Status Alert Footer */}
-              <div className="p-3 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  <span className="text-[9px] font-black text-emerald-600 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> LIVE
                   </span>
-                  <span className="text-[10px] font-bold text-slate-600">PLACEMENT ASSISTANCE ACTIVE</span>
                 </div>
-                <span className="text-[9px] font-black text-primary hover:underline cursor-pointer flex items-center gap-0.5">
-                  VIEW INVITATIONS
+                <div className="p-3.5 rounded-xl bg-white/80 border border-slate-100 shadow-sm flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <GraduationCap className="w-4 h-4 text-secondary" />
+                    <span className="text-xs font-bold text-slate-700">AI Literacy Mission @ Campus</span>
+                  </div>
+                  <span className="text-[9px] font-black text-emerald-600 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> LIVE
+                  </span>
+                </div>
+                <div className="p-3.5 rounded-xl bg-white/80 border border-slate-100 shadow-sm flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Handshake className="w-4 h-4 text-accent" />
+                    <span className="text-xs font-bold text-slate-700">ELEVATE: TechFests@Campus</span>
+                  </div>
+                  <span className="text-[9px] font-black text-emerald-600 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> LIVE
+                  </span>
+                </div>
+              </div>
+
+              {/* Footer link */}
+              <Link href="#services" className="flex items-center justify-between p-3 rounded-xl bg-primary/5 border border-primary/10 hover:bg-primary/10 transition-colors">
+                <span className="text-[10px] font-bold text-slate-600">See all ecosystem modules</span>
+                <span className="text-[9px] font-black text-primary flex items-center gap-0.5">
+                  VIEW ALL
                   <ArrowRight className="w-2.5 h-2.5" />
                 </span>
-              </div>
+              </Link>
             </div>
 
-            {/* Decorative background elements behind mockup */}
+            {/* Decorative background elements behind card */}
             <div className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-accent/20 blur-2xl pointer-events-none" />
             <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-primary/20 blur-2xl pointer-events-none" />
           </motion.div>

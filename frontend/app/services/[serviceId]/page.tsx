@@ -255,7 +255,7 @@ export default async function ServicePlaceholderPage({ params }: PageProps) {
       {/* Footer copyright */}
       <footer className="py-6 text-center border-t border-slate-200/40 relative z-10 bg-white/20">
         <p className="text-xs text-slate-400">
-          &copy; {new Date().getFullYear()} Million Minds AI. All rights reserved.
+          &copy; {new Date().getFullYear()} Millionminds. All rights reserved.
         </p>
       </footer>
     </div>

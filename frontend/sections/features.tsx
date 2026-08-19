@@ -16,7 +16,7 @@ export function FeaturesSection() {
     {
       icon: <Rocket className="w-6 h-6 text-white" />,
       title: "Startup Support",
-      description: "Direct assistance with patent registration, mentorship, early venture funding, and infrastructure.",
+      description: "Mentorship and incubation support to take a raw idea through ideation, prototyping, and structured business planning.",
       gradient: "from-violet-600 to-purple-600 shadow-purple-500/20",
     },
     {
@@ -28,7 +28,7 @@ export function FeaturesSection() {
     {
       icon: <GraduationCap className="w-6 h-6 text-white" />,
       title: "Placement Assistance",
-      description: "Dedicated assistance connecting you to 500+ corporate recruiters looking for active candidates.",
+      description: "Dedicated assistance connecting you to corporate recruiters looking for active candidates.",
       gradient: "from-emerald-600 to-teal-600 shadow-emerald-500/20",
     },
     {
@@ -40,7 +40,7 @@ export function FeaturesSection() {
     {
       icon: <Sparkles className="w-6 h-6 text-white" />,
       title: "Innovation Labs",
-      description: "State-of-the-art developer environments, web frameworks testing, and hardware prototyping access.",
+      description: "Sandbox developer environments to test and prototype disruptive technical solutions.",
       gradient: "from-amber-600 to-orange-500 shadow-orange-500/20",
     },
     {
@@ -52,7 +52,7 @@ export function FeaturesSection() {
     {
       icon: <ClipboardCheck className="w-6 h-6 text-white" />,
       title: "Skill Assessment",
-      description: "Take verified benchmark exams and code challenges to earn shareable profile digital credentials.",
+      description: "Take benchmark exams and code challenges to earn a shareable digital credential for your profile.",
       gradient: "from-fuchsia-600 to-pink-500 shadow-fuchsia-500/20",
     },
   ];

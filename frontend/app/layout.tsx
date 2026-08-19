@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Million Minds AI | Next-Gen Education, Innovation & Career Platform",
-  description: "Empowering students through AI-driven skill development, startup incubation cohorts, paid experienceships, and premium placement assistance. Inspired by Million Minds.",
+  title: "Millionminds | Entrepreneurship & 21st Century Skills Ecosystem",
+  description: "Millionminds is the umbrella brand behind our Entrepreneurship Education Programme and 21st Century Skill Development Programme for engineering college students — this portal brings our live initiatives and partner platforms together in one place.",
 };
 
 export default function RootLayout({

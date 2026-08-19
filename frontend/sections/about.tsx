@@ -3,39 +3,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Lightbulb, Rocket, Users, Target, BookOpen, Layers } from "lucide-react";
+import { Rocket, Lightbulb, GraduationCap, BookOpen } from "lucide-react";
 
 export function AboutSection() {
   const pillars = [
     {
       icon: <Rocket className="w-6 h-6 text-primary" />,
-      title: "Entrepreneurship",
-      description: "Cultivating business minds from early stage ideation to structured GTM plans and funding assistance.",
+      title: "Entrepreneurship Development",
+      description: "Learn to conceptualize, strategize, and execute business ideas with guidance on prototyping, market solutions, and funding.",
     },
     {
-      icon: <Target className="w-6 h-6 text-secondary" />,
-      title: "Skill Development",
-      description: "Mastering in-demand 21st-century technologies, ensuring students are transition-ready on day one.",
+      icon: <Lightbulb className="w-6 h-6 text-secondary" />,
+      title: "Innovation and Incubation Platforms",
+      description: "Access resources for ideation, innovation, and incubation, fostering a startup-friendly ecosystem on campuses.",
     },
     {
-      icon: <Users className="w-6 h-6 text-accent" />,
-      title: "Industry Collaboration",
-      description: "Direct linkages with corporations, offering dialogues, projects, and experienced mentorship.",
-    },
-    {
-      icon: <Lightbulb className="w-6 h-6 text-yellow-500" />,
-      title: "Innovation",
-      description: "Providing sandbox environments and prototyping labs to test disruptive technical solutions.",
+      icon: <GraduationCap className="w-6 h-6 text-accent" />,
+      title: "21st Century Skill Enhancement",
+      description: "Build employability through technological and life skills essential for success in modern workplaces.",
     },
     {
       icon: <BookOpen className="w-6 h-6 text-emerald-500" />,
-      title: "Hands-on Learning",
-      description: "Embracing the HOL-E concept (Hands-On Learning & Experienceship) over passive lectures.",
-    },
-    {
-      icon: <Layers className="w-6 h-6 text-rose-500" />,
-      title: "Startup Ecosystem",
-      description: "Connecting students to the startup world, offering paid gigs, experienceships, and hiring networks.",
+      title: "Hands-on Learning (HOL-E)",
+      description: "Experience real-world scenarios through practical learning and industry experienceships for better career readiness.",
     },
   ];
 
@@ -75,7 +65,7 @@ export function AboutSection() {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-4xl font-extrabold text-dark tracking-tight"
           >
-            Bridging the Gap Between Academia & the Corporate Ecosystem
+            Empowering Engineers with Future-Ready Skills
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +74,7 @@ export function AboutSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-slate-500 text-base leading-relaxed"
           >
-            Inspired by the vision of Million Minds, we are an AI-powered incubator and talent enablement center. We operate with a core belief: true education happens through experiences. Our platform guides engineering candidates and business strategists to learn, build, and deploy.
+            Millionminds is the overarching umbrella brand under which all initiatives and programmes in the edutech space are managed — namely the &ldquo;Entrepreneurship Education Programme&rdquo; and &ldquo;21st Century Skill Development Programme,&rdquo; focused primarily on engineering college students. Our skill development solutions enhance employability by enabling students to acquire both technological skills and life skills, while tapping into the domain knowledge of bright young minds to create Talent-as-a-Service solutions for corporate clients.
           </motion.p>
         </div>
 
@@ -94,7 +84,7 @@ export function AboutSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {pillars.map((pillar) => (
             <motion.div key={pillar.title} variants={itemVariants}>
