@@ -39,6 +39,100 @@ ARIA_CAMPUS_TAAS_URL  = "https://aria-campus-taas.onrender.com/"   # service-3 (
 # Set a real secret via the ADMIN_API_KEY env var before deploying.
 ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "dev-admin-key")
 
+# ─── Services grid — single source of truth for the homepage services section ─
+# Static metadata only (no outbound calls) so the listing endpoint stays fast.
+# `icon` is a slug the frontend maps to a lucide-react icon component.
+SERVICES_SUMMARY = [
+    {
+        "id": "service-1",
+        "name": "AI Boot Camp",
+        "description": "Join an immersive learning experience focused on AI, innovation, and career-ready skills.",
+        "icon": "brain",
+        "link": "https://million-main.vercel.app/",
+        "status": "active",
+    },
+    {
+        "id": "service-2",
+        "name": "Aspire - Jobs & Internships",
+        "description": "Aspire — Jobs & Internships Platform for Students and Companies.",
+        "icon": "briefcase",
+        "link": "https://aspire-frontend.onrender.com",
+        "status": "active",
+    },
+    {
+        "id": "service-3",
+        "name": "Campus TaaS Platform",
+        "description": "Connect with vetted, agile student teams trained to handle technical pipelines and operational use cases.",
+        "icon": "graduation-cap",
+        "link": "https://aria-campus-taas.onrender.com/",
+        "status": "active",
+    },
+    {
+        "id": "service-10",
+        "name": "AI Literacy Mission @ Campus",
+        "description": "A free, mentor-led 70-hour programme training students in practical GenAI skills — MasterClass, self-practice, and a capstone project.",
+        "icon": "sparkles",
+        "link": "https://ai-literacy-mission-campus.vercel.app",
+        "status": "active",
+    },
+    {
+        "id": "service-11",
+        "name": "ELEVATE: TechFests@Campus",
+        "description": "Connects campus hackathons, ideathons, and tech fests with startups and corporates as sponsors, mentors, and collaborators.",
+        "icon": "handshake",
+        "link": "https://elevate-tech-fests-campus.vercel.app",
+        "status": "active",
+    },
+    {
+        "id": "service-4",
+        "name": "AI Boot Camps",
+        "description": "Hands-on, live in-campus programs across tech, industry-application, and generalist tracks.",
+        "icon": "book-open",
+        "link": "https://million-main.vercel.app/",
+        "status": "active",
+    },
+    {
+        "id": "service-5",
+        "name": "AI Studio",
+        "description": "Build, test, and deploy GenAI applications and custom LLM models in a collaborative, low-code sandbox environment.",
+        "icon": "rocket",
+        "link": None,
+        "status": "coming_soon",
+    },
+    {
+        "id": "service-6",
+        "name": "Hackathon Platform",
+        "description": "Form teams, build working prototypes, and compete in nationwide innovation challenges.",
+        "icon": "trophy",
+        "link": None,
+        "status": "coming_soon",
+    },
+    {
+        "id": "service-7",
+        "name": "Student Dashboard",
+        "description": "Track your coursework metrics, skill scores, active applications, and upcoming events.",
+        "icon": "layout-dashboard",
+        "link": None,
+        "status": "coming_soon",
+    },
+    {
+        "id": "service-8",
+        "name": "Company Portal",
+        "description": "Post internship requirements, review candidate profiles, and schedule panel interviews.",
+        "icon": "building",
+        "link": None,
+        "status": "coming_soon",
+    },
+    {
+        "id": "service-9",
+        "name": "Analytics Dashboard",
+        "description": "Access institutional metrics on placement rates, average package distributions, and skill logs.",
+        "icon": "bar-chart-3",
+        "link": None,
+        "status": "coming_soon",
+    },
+]
+
 
 def require_admin(x_admin_key: str = Header(default="")):
     if x_admin_key != ADMIN_API_KEY:
@@ -68,6 +162,15 @@ def read_root():
         "platform": "Million Minds AI",
         "message": "Welcome to the Platform Backend API. The API service is fully operational."
     }
+
+
+@app.get("/api/services")
+def list_services():
+    """
+    Powers the homepage services grid. The frontend fetches this on load so
+    the grid reflects this list without needing a frontend redeploy.
+    """
+    return {"count": len(SERVICES_SUMMARY), "services": SERVICES_SUMMARY}
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -661,4 +764,46 @@ def get_analytics_dashboard():
         "service_id": "service-9",
         "name": "Analytics Dashboard",
         "status": "coming_soon",
+    }
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# SERVICE 10 — AI Literacy Mission @ Campus (ai-literacy-mission-campus.vercel.app)
+# SERVICE 11 — ELEVATE: TechFests@Campus (elevate-tech-fests-campus.vercel.app)
+# Both are frontend-only Vercel deployments — metadata only, no backend proxy.
+# ═════════════════════════════════════════════════════════════════════════════
+
+@app.get("/api/services/service-10")
+def get_ai_literacy_mission():
+    return {
+        "service_id": "service-10",
+        "name": "AI Literacy Mission @ Campus",
+        "description": "A free, mentor-led 70-hour programme (30h MasterClass + 30h self-practice + 10h capstone) training students in practical GenAI skills.",
+        "status": "active",
+        "provider": "Millionminds UpSkill Academy",
+        "frontend_url": "https://ai-literacy-mission-campus.vercel.app",
+        "features": [
+            "1:1 mentorship from verified college mentors",
+            "20 live MasterClass sessions on GenAI tools & prompt engineering",
+            "Structured self-practice assignments",
+            "Capstone project with a verified certificate",
+        ],
+    }
+
+
+@app.get("/api/services/service-11")
+def get_elevate_techfests():
+    return {
+        "service_id": "service-11",
+        "name": "ELEVATE: TechFests@Campus",
+        "description": "Connects campus hackathons, ideathons, and tech fests with startups and corporates as sponsors, mentors, and collaborators.",
+        "status": "active",
+        "provider": "Millionminds UpSkill Academy",
+        "frontend_url": "https://elevate-tech-fests-campus.vercel.app",
+        "features": [
+            "Campuses list hackathons, ideathons, workshops, and seminars",
+            "Startups & SMBs discover and filter events by domain, location, scale",
+            "Express interest as sponsor, mentor, or collaborator",
+            "Deal closure and deliverables tracked in-platform",
+        ],
     }

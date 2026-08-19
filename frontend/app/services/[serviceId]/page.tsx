@@ -7,6 +7,14 @@ import { Button } from "@/components/ui/button";
 
 const EXTERNAL_HOMEPAGE_URL = "https://million-main.vercel.app/";
 
+// Services that are live external apps: a direct hit on /services/<id> redirects
+// straight there instead of showing the placeholder template below.
+const EXTERNAL_REDIRECTS: Record<string, string> = {
+  "service-1": EXTERNAL_HOMEPAGE_URL,
+  "service-10": "https://ai-literacy-mission-campus.vercel.app",
+  "service-11": "https://elevate-tech-fests-campus.vercel.app",
+};
+
 // Static mapping for service-1 to service-9 metadata
 const servicesMap: Record<
   string,
@@ -121,6 +129,8 @@ export async function generateStaticParams() {
     { serviceId: "service-7" },
     { serviceId: "service-8" },
     { serviceId: "service-9" },
+    { serviceId: "service-10" },
+    { serviceId: "service-11" },
   ];
 }
 
@@ -133,8 +143,8 @@ interface PageProps {
 export default async function ServicePlaceholderPage({ params }: PageProps) {
   const { serviceId } = await params;
 
-  if (serviceId === "service-1") {
-    redirect(EXTERNAL_HOMEPAGE_URL);
+  if (EXTERNAL_REDIRECTS[serviceId]) {
+    redirect(EXTERNAL_REDIRECTS[serviceId]);
   }
 
   const service = servicesMap[serviceId] || {

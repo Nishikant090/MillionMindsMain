@@ -7,6 +7,15 @@ export interface AuthUser {
   email: string;
 }
 
+export interface Service {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  link: string | null;
+  status: "active" | "coming_soon";
+}
+
 interface AuthResponse {
   token: string;
   user: AuthUser;
@@ -60,4 +69,11 @@ export async function getMe(token: string): Promise<AuthUser> {
 
   if (!res.ok) throw new Error(await extractErrorMessage(res));
   return res.json();
+}
+
+export async function getServices(): Promise<Service[]> {
+  const res = await fetch(`${API_URL}/api/services`);
+  if (!res.ok) throw new Error(await extractErrorMessage(res));
+  const body = await res.json();
+  return body.services;
 }

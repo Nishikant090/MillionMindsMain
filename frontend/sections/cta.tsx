@@ -1,12 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { useAuth } from "@/lib/auth-context";
+import { AuthModal } from "@/components/auth/auth-modal";
 
 export function CTASection() {
+  const { user } = useAuth();
+  const [showSignup, setShowSignup] = useState(false);
+
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
@@ -32,12 +37,14 @@ export function CTASection() {
 
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-2xl leading-[1.1]">
-            Ready to Transform Your Career?
+            {user ? `Welcome back, ${user.name.split(" ")[0]}!` : "Ready to Transform Your Career?"}
           </h2>
 
           {/* Subheading */}
           <p className="text-slate-400 text-sm md:text-base max-w-xl leading-relaxed font-normal">
-            Whether you are a student looking for experienceships, an institution aiming to streamline placements, or a corporate recruiter looking for vetted talent.
+            {user
+              ? "You're part of the ecosystem. Explore the services below to pick up where you left off."
+              : "Whether you are a student looking for experienceships, an institution aiming to streamline placements, or a corporate recruiter looking for vetted talent."}
           </p>
 
           {/* Action CTAs */}
@@ -48,12 +55,26 @@ export function CTASection() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button variant="glass" size="lg" className="text-white border-white/20 hover:bg-white/10">
-              Join Ecosystem Now
-            </Button>
+            {user ? (
+              <div className="flex items-center gap-2 text-sm font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-5 py-3.5">
+                <CheckCircle2 className="w-4 h-4" />
+                Account active
+              </div>
+            ) : (
+              <Button
+                variant="glass"
+                size="lg"
+                className="text-white border-white/20 hover:bg-white/10"
+                onClick={() => setShowSignup(true)}
+              >
+                Join Ecosystem Now
+              </Button>
+            )}
           </div>
         </motion.div>
       </div>
+
+      {showSignup && <AuthModal mode="signup" onClose={() => setShowSignup(false)} />}
     </section>
   );
 }
