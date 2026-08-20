@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Millionminds | Entrepreneurship & 21st Century Skills Ecosystem",
-  description: "Millionminds is the umbrella brand behind our Entrepreneurship Education Programme and 21st Century Skill Development Programme for engineering college students — this portal brings our live initiatives and partner platforms together in one place.",
+  title: "Millionminds Knowledge X-Change | Bridging The Gap",
+  description: "A platform to impart employability skills training — promoting holistic development of students' skill sets in Emerging Technology Domains through hands-on, real-world experience.",
 };
 
 export default function RootLayout({

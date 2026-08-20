@@ -31,7 +31,7 @@ export function HeroSection() {
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/25 text-xs font-semibold uppercase tracking-wider"
             >
               <Sparkles className="w-3.5 h-3.5" />
-              Millionminds Ecosystem Portal
+              Knowledge X-Change · A Millionminds Initiative
             </motion.div>
 
             {/* Main Title */}
@@ -41,12 +41,19 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-dark leading-[1.1]"
             >
-              Empowering Students Through{" "}
+              Bridging{" "}
               <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                Entrepreneurship
-              </span>{" "}
-              & 21st Century Skills
+                The Gap
+              </span>
             </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="text-lg md:text-xl font-bold text-dark uppercase tracking-wide -mt-2"
+            >
+              A platform to impart employability skills training
+            </motion.p>
 
             {/* Subheading */}
             <motion.p
@@ -55,7 +62,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base md:text-lg text-slate-600 leading-relaxed font-normal"
             >
-              Millionminds is the umbrella brand behind our Entrepreneurship Education Programme and 21st Century Skill Development Programme — helping engineering college students build technological skills and life skills through hands-on, real-world experience. This portal is where our live initiatives and partner platforms come together.
+              To promote holistic development of students&rsquo; skill sets in various Emerging Technology Domains, and enhance their &ldquo;Employability Quotient&rdquo; by providing conceptual learning with hands-on experience through real-world work — for real-world success.
             </motion.p>
 
             {/* CTA Buttons */}

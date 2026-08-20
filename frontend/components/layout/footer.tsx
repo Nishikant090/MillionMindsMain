@@ -170,13 +170,14 @@ export function Footer() {
             </div>
             
             <div className="flex flex-col gap-3 border-t border-slate-800/60 pt-4">
+              <p className="text-xs text-slate-500">Sanjoy Chakrabarty, Founder &amp; CEO</p>
               <div className="flex items-center gap-3 text-sm">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
-                <a href="mailto:sanjoy.millionminds@gmail.com" className="hover:text-white transition-colors">sanjoy.millionminds@gmail.com</a>
+                <a href="mailto:sanjoyc@millionminds.in" className="hover:text-white transition-colors">sanjoyc@millionminds.in</a>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <a href="tel:+919820409663" className="hover:text-white transition-colors">+91 98204 09663</a>
+                <a href="tel:+919820409663" className="hover:text-white transition-colors">+91 98204 09663 (Call / WhatsApp)</a>
               </div>
               <div className="flex items-start gap-3 text-sm">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />

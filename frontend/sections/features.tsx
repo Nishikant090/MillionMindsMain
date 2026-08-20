@@ -21,8 +21,8 @@ export function FeaturesSection() {
     },
     {
       icon: <Compass className="w-6 h-6 text-white" />,
-      title: "Internship Opportunities",
-      description: "Access verified paid internships and experienceships with global brands and active tech startups.",
+      title: "Real Life Work Experience",
+      description: "Access verified paid internships and experienceships that put you inside active tech startups and real business problems, not simulations.",
       gradient: "from-cyan-600 to-teal-500 shadow-cyan-500/20",
     },
     {
