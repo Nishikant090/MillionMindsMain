@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ArrowLeft, CheckCircle2, LayoutDashboard, Brain, Briefcase, GraduationCap, Bot, Award, TrendingUp, RefreshCw, ShieldCheck, BarChart3, Lightbulb, FlaskConical } from "lucide-react";
+import { ArrowLeft, CheckCircle2, LayoutDashboard, Briefcase, GraduationCap, Bot, Award, TrendingUp, RefreshCw, ShieldCheck, BarChart3, Lightbulb, FlaskConical } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
 
